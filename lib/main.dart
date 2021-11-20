@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Plant Master Demo',
+      title: 'Plant Master App Demo',
       theme: CustomTheme.lightTheme,
       initialRoute: '/',
       routes: {
