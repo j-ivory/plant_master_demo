@@ -41,6 +41,30 @@ abstract class ThemeText {
     height: 1,
     fontWeight: FontWeight.normal,
   );
+
+  static const TextStyle bodyBold = TextStyle(
+    fontFamily: 'Open_Sans',
+    color: Color.fromRGBO(232, 225, 217, 1),
+    fontSize: 18,
+    height: 1,
+    fontWeight: FontWeight.bold,
+  );
+
+  static const TextStyle bodyLarger = TextStyle(
+    fontFamily: 'Open_Sans',
+    color: Color.fromRGBO(232, 225, 217, 1),
+    fontSize: 24,
+    height: 1,
+    fontWeight: FontWeight.normal,
+  );
+
+  static const TextStyle bodyHeader = TextStyle(
+    fontFamily: 'Open_Sans',
+    color: Color.fromRGBO(232, 225, 217, 1),
+    fontSize: 18,
+    height: 1,
+    fontWeight: FontWeight.bold,
+  );
 }
 
 // abstract class ThemeColors {
@@ -51,11 +75,11 @@ class CustomTheme {
     return ThemeData( //2
         primaryColor: AppColors().darkGreen,
         scaffoldBackgroundColor: AppColors().darkGreen,
-        fontFamily: 'Roboto', //3
+        fontFamily: 'Roboto_Slab', //3
         primarySwatch: Colors.green, //AppColors().orangeMaterial,
-        buttonColor: AppColors().orange,
+        //buttonColor: AppColors().orange,
         buttonTheme: ButtonThemeData(textTheme: ButtonTextTheme.accent),
-        accentColor: AppColors().orange,
+        //accentColor: AppColors().orange,
         // buttonTheme: ButtonThemeData( // 4
         //   buttonColor: AppColors().orange,
         // )

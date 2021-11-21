@@ -1,4 +1,5 @@
 //flutter imports
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:convert';
@@ -49,7 +50,9 @@ class _TestScreenState extends State<TestScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+          minimum: EdgeInsets.all(20),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
                 child: Text(
@@ -59,37 +62,43 @@ class _TestScreenState extends State<TestScreen> {
               ),
 
               Spacer(),
-              Text(
-                'Plant of the Day',
-                style: ThemeText.headerMedium,
+              Center(
+                child: Text(
+                  'Plant of the Day!',
+                  style: ThemeText.headerMedium,
+                  textAlign: TextAlign.center,
+                ),
               ),
 
               Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 0),
                 child: Image.asset('assets/images/aloe-picture.jpg'),
               ),
               Card(
+                color: AppColors().darkGreen,
+                elevation: 0,
                 child: FutureBuilder<Plant>(
                   future: futurePlant,
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      return Center(
-                        child: Column(
-                            //mainAxisAlignment: MainAxisAlignment.center,
-                            //crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text('Scientific Name', style: ThemeText.headerSmall),
-                              Text(snapshot.data!.scientificName),
-                              Text('Primary Name', style: ThemeText.headerSmall),
-                              Text(snapshot.data!.primaryCommonName),
-                            ]),
-                      );
+                      return Column(
+                          //mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(snapshot.data!.scientificName, style: ThemeText.bodyLarger,),
+                            Text('Scientific Name', style: ThemeText.body, textAlign: TextAlign.left,),
+                            SizedBox(height: 15),
+                            Text(snapshot.data!.primaryCommonName, style: ThemeText.bodyLarger,),
+                            Text('Primary Name', style: ThemeText.body, textAlign: TextAlign.left,),
+                            SizedBox(height: 15),
+                          ]);
                     } else if (snapshot.hasError) {
                       return Text('${snapshot.error}');
                     }
 
                     // By default, show a loading spinner.
-                    return const CircularProgressIndicator();
+                    //return const CircularProgressIndicator();
+                    return Center(child: Image.asset('assets/images/loader.gif', scale: 6,));
                   },
                 ),
               ),
@@ -100,5 +109,6 @@ class _TestScreenState extends State<TestScreen> {
             ],
           ),
         );
+
   }
 }

@@ -67,6 +67,7 @@ class LoginScreen extends StatelessWidget {
               Spacer(
                 flex: 2,
               ),
+              //Image.asset('assets/images/loader.gif', scale: 8,),
             ],
           ),
         ),
