@@ -73,8 +73,8 @@ abstract class ThemeText {
 class CustomTheme {
   static ThemeData get lightTheme { //1
     return ThemeData( //2
-        primaryColor: AppColors().darkGreen,
-        scaffoldBackgroundColor: AppColors().darkGreen,
+        primaryColor: AppColors().lightGreen,
+        scaffoldBackgroundColor: AppColors().lightGreen,
         fontFamily: 'Roboto_Slab', //3
         primarySwatch: Colors.green, //AppColors().orangeMaterial,
         //buttonColor: AppColors().orange,

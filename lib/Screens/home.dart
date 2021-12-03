@@ -75,7 +75,7 @@ class _TestScreenState extends State<TestScreen> {
                 child: Image.asset('assets/images/aloe-picture.jpg'),
               ),
               Card(
-                color: AppColors().darkGreen,
+                color: AppColors().lightGreen,
                 elevation: 0,
                 child: FutureBuilder<Plant>(
                   future: futurePlant,

@@ -1,5 +1,6 @@
 //flutter imports
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 //project files imports
 import 'package:plant_master_demo/Theme/theme_data.dart';
@@ -11,10 +12,13 @@ import 'package:plant_master_demo/Screens/login.dart';
 // import 'package:plant_master_demo/Screens/saved.dart';
 // import 'package:plant_master_demo/Screens/settings.dart';
 import 'package:plant_master_demo/myscreens.dart';
+import 'package:plant_master_demo/Data Source/SavedModel.dart';
 
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    MyApp(),
+  );  //MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -24,7 +28,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Plant Master App Demo',
       theme: CustomTheme.lightTheme,
-      initialRoute: '/',
+      //initialRoute: '/',
       routes: {
         '/': (context) => const LoginScreen(),
 
@@ -37,10 +41,7 @@ class MyApp extends StatelessWidget {
 
 
         '/screens': (context) => MyScreens(),
-
-
       }
-     // home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -48,6 +49,17 @@ class MyApp extends StatelessWidget {
 
 
 
+
+
+
+
+
+
+
+
+
+
+///garbage bin below
 
 
 class MyHomePage extends StatefulWidget {
