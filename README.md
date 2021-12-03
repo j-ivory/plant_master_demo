@@ -4,4 +4,4 @@ Grow your plant knowledge!
 
 ## App Made by Isaac Attuah & James Hasell
 
-This project is an app to help people learn about and connect with the flora around them.
+This project is an app to help people learn about and connect with the flora around them. Built in Android Studio using Flutter
