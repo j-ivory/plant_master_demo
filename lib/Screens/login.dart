@@ -6,8 +6,25 @@ import 'package:plant_master_demo/Theme/theme_data.dart';
 import 'package:plant_master_demo/main.dart';
 import 'package:plant_master_demo/Data Source/card.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+
+  final myController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    myController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +58,7 @@ class LoginScreen extends StatelessWidget {
                     border: OutlineInputBorder(),
                     labelText: 'Email/Username',
                   ),
+                  controller: myController,
                 ),
               ),
               Text(
@@ -55,6 +73,7 @@ class LoginScreen extends StatelessWidget {
                     border: OutlineInputBorder(),
                     labelText: 'Password',
                   ),
+                  controller: passwordController,
                 ),
               ),
               ElevatedButton(
@@ -62,6 +81,16 @@ class LoginScreen extends StatelessWidget {
                 onPressed: () {
                   // Navigate to the second screen using a named route.
                   Navigator.pushNamed(context, '/screens');
+
+                  showDialog(
+                    context: context,
+                    builder: (context){
+                      return AlertDialog(
+                        content: Text("Username: ${myController.text}   Password: ${passwordController.text}")
+                      );
+                    },
+                  );
+
                 },
                 child: const Text('Enter'),
               ),

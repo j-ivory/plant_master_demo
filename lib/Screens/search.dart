@@ -13,6 +13,14 @@ class SearchScreen extends StatefulWidget {
 }
 class _SearchScreenState extends State<SearchScreen> {
 
+  final searchController = TextEditingController();
+
+  @override
+  void dispose() {
+    searchController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -25,14 +33,31 @@ class _SearchScreenState extends State<SearchScreen> {
                ),
                Padding(
                  padding: const EdgeInsets.all(20.0),
-                 child: TextField(
-                   //obscureText: true,
-                   decoration: InputDecoration(
-                     border: OutlineInputBorder(),
-                     labelText: 'Search',
-                   ),
+                 child:
+                     TextField(
+                       //obscureText: true,
+                       decoration: InputDecoration(
+                         border: OutlineInputBorder(),
+                         labelText: 'Search',
+                       ),
+                       controller: searchController,
+                     ),
                  ),
-               ),
+              ElevatedButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        // Retrieve the text the that user has entered by using the
+                        // TextEditingController.
+                        content: Text(searchController.text),
+                      );
+                    },
+                  );
+                },
+                child: const Text('Submit'),
+              ),
 
 
               // ElevatedButton(
