@@ -14,6 +14,8 @@ import 'package:plant_master_demo/Screens/saved.dart';
 import 'package:plant_master_demo/Screens/settings.dart';
 import 'package:plant_master_demo/Screens/home.dart';
 
+User? userSet = FirebaseAuth.instance.currentUser ;
+
 class MyScreens extends StatefulWidget {
   //var buildContext;
 
@@ -58,7 +60,8 @@ class MyScreensState extends State<MyScreens> {
       break;
 
       case 4:{
-        return SettingsScreen();
+
+        return SettingsScreen(user: userSet);
       }
       break;
 
@@ -73,7 +76,7 @@ class MyScreensState extends State<MyScreens> {
     SearchScreen(),
     LearnScreen(),
     SavedScreen(),
-    SettingsScreen(),
+    SettingsScreen(user: userSet),
     TestScreen(),
   ];
   // Widget settingsBodyScreen = Center(
