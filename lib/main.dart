@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         // '/settings': (context) => const SettingsScreen(),
 
 
-        '/screens': (context) => MyScreens(),
+        '/screens': (context) => MyScreens(buildContext: context),
       }
     );
   }

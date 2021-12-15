@@ -14,6 +14,10 @@ import 'package:plant_master_demo/Screens/settings.dart';
 import 'package:plant_master_demo/Screens/home.dart';
 
 class MyScreens extends StatefulWidget {
+  var buildContext;
+
+  MyScreens({Key? key, required this.buildContext})
+      : super(key: key);
   @override
   MyScreensState createState() => new MyScreensState();
 }
