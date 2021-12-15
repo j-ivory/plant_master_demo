@@ -1,6 +1,7 @@
 //flutter imports
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
+import 'package:plant_master_demo/Screens/profile_page.dart';
 //project files imports
 import 'package:plant_master_demo/Theme/theme_data.dart';
 import 'package:provider/provider.dart';
@@ -14,10 +15,10 @@ import 'package:plant_master_demo/Screens/settings.dart';
 import 'package:plant_master_demo/Screens/home.dart';
 
 class MyScreens extends StatefulWidget {
-  var buildContext;
+  //var buildContext;
 
-  MyScreens({Key? key, required this.buildContext})
-      : super(key: key);
+  // MyScreens({Key? key, required this.buildContext})
+  //     : super(key: key);
   @override
   MyScreensState createState() => new MyScreensState();
 }

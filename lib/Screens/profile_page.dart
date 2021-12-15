@@ -132,7 +132,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    MyScreens screens = MyScreens(buildContext: context);
+    MyScreens screens = MyScreens();
     return Scaffold(
         // appBar: AppBar(
         //     title: Text(''),
