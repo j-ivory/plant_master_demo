@@ -18,7 +18,7 @@ class PlantCard extends StatelessWidget {
 
     return Card(
       elevation: 0,
-      color: AppColors().lightGreen,
+      color: AppColors().background,
       child: Column(
         children: [
           Stack(
@@ -51,7 +51,7 @@ class PlantCard extends StatelessWidget {
             child: Text(scientificName,
               style: TextStyle(
                 fontFamily: 'Open_Sans',
-                color: Color.fromRGBO(232, 225, 217, 1),
+                color: AppColors().aux_red,
                 fontSize: 14,
                 height: 1,
                 fontWeight: FontWeight.normal,
@@ -66,7 +66,7 @@ class PlantCard extends StatelessWidget {
             child: Text(commonName,
               style: TextStyle(
                 fontFamily: 'Open_Sans',
-                color: Color.fromRGBO(232, 225, 217, 1),
+                color: AppColors().aux_red,
                 fontSize: 14,
                 height: 1,
                 fontWeight: FontWeight.normal,

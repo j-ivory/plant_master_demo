@@ -33,8 +33,8 @@ class _SearchScreenState extends State<SearchScreen> {
   String initial_query = "Aloe";
   bool _isLoading = true;
 
-  Icon cusIcon = Icon(Icons.search);
-  Widget cusSearchBar = const Text("Search");
+  Icon cusIcon = Icon(Icons.search, color: Colors.green);
+  Widget cusSearchBar = const Text("Search", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green, fontSize: 50 ));
 
   Map<String, dynamic> searchJSON = {
     "criteriaType" : "species",
@@ -212,12 +212,13 @@ class _SearchScreenState extends State<SearchScreen> {
           builder: (context, saved, _) {
             return Scaffold(
               appBar: AppBar(
-                  backgroundColor: Colors.green,
+                  elevation: 0,
+                  backgroundColor: AppColors().background,
                   actions: <Widget>[
                     IconButton(icon: cusIcon, onPressed: () {
                       setState(() {
                         if (cusIcon.icon == Icons.search) {
-                          cusIcon = Icon(Icons.cancel);
+                          cusIcon = Icon(Icons.cancel, color: Colors.green);
                           cusSearchBar = TextField(
                               textInputAction: TextInputAction.go,
                               onSubmitted: (String value) async {
@@ -230,14 +231,14 @@ class _SearchScreenState extends State<SearchScreen> {
                                   hintText: "Scientific or Common Name"
                               ),
                               style: const TextStyle(
-                                  color: Colors.white,
+                                  color: Colors.green,
                                   fontSize: 16.0
                               )
                           );
                         }
                         else {
-                          cusIcon = Icon(Icons.search);
-                          cusSearchBar = const Text("Search");
+                          cusIcon = Icon(Icons.search, color: Colors.green);
+                          cusSearchBar = const Text("Search", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green, fontSize: 50 ) );
                         }
                       });
                     }),

@@ -50,6 +50,7 @@ class _LoginPageState extends State<LoginPage> {
         _focusPassword.unfocus();
       },
       child: Scaffold(
+        backgroundColor: AppColors().lightGreen,
         body: SafeArea(
           child: Column(
             children:

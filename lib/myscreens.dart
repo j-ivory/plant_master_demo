@@ -108,7 +108,7 @@ class MyScreensState extends State<MyScreens> {
 
         bottomNavigationBar: new BottomNavigationBar( //persistent bottom nav bar
             type: BottomNavigationBarType.fixed,
-            backgroundColor: AppColors().gray,
+            backgroundColor: AppColors().background2,
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),
@@ -132,7 +132,7 @@ class MyScreensState extends State<MyScreens> {
               ),
             ],
             currentIndex: _selectedIndex,
-            selectedItemColor: AppColors().orangeMaterial,
+            selectedItemColor: Colors.green,
             onTap: _onItemTapped,
           ),
       ),

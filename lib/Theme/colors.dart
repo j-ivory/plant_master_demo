@@ -10,9 +10,24 @@ class AppColors {
   final lightGreen = Colors.green[700];
   final orange = const Color.fromRGBO(244, 164, 66, 1);
   final gray = const Color.fromRGBO(232, 225, 217, 1);
+
+  final background = Colors.white;//const Color.fromRGBO(232, 225, 217, 1);
+  final background2 = Colors.white;
+  final headerText = const Color.fromRGBO(81, 146, 89, 1);
+  final bodyText = const Color.fromRGBO(6, 70, 53, 1);
   //Color(0XFFF8D320) this is a cool light green
 
+
   final MaterialColor orangeMaterial = MaterialColor(0xFFF4A442, color);
+
+  final s_gray = const Color.fromRGBO(244, 238, 169, 1);
+  final s_brown = const Color.fromRGBO(240, 187, 98, 1);
+  final s_green = const Color.fromRGBO(6, 70, 53, 1);
+  final s_lightGreen = const Color.fromRGBO(81, 146, 89, 1);
+  
+  final aux_green = const Color.fromRGBO(138, 134, 53, 1);
+  final aux_beige = const Color.fromRGBO(233, 200, 145, 1);
+  final aux_red = const Color.fromRGBO(174, 67, 30, 1);
 
   AppColors();
 }

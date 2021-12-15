@@ -6,21 +6,21 @@ import 'package:google_fonts/google_fonts.dart';
 abstract class ThemeText {
   static TextStyle headerLarge = TextStyle(
     fontFamily: 'Roboto_Slab',
-    color: AppColors().gray, //Color.fromARGB(1, 18, 92, 19),
+    color: AppColors().headerText, //Color.fromARGB(1, 18, 92, 19),
     fontSize: 36,
     height: 1,
     fontWeight: FontWeight.bold,
   );
   static TextStyle headerMedium = TextStyle(
     fontFamily: 'Roboto_Slab',
-    color: AppColors().gray, //Color.fromARGB(1, 18, 92, 19),
+    color: AppColors().headerText, //Color.fromARGB(1, 18, 92, 19),
     fontSize: 24,
     height: 1,
     fontWeight: FontWeight.bold,
   );
   static TextStyle headerSmall = TextStyle(
     fontFamily: 'Roboto_Slab',
-    color: AppColors().gray, //Color.fromARGB(1, 18, 92, 19),
+    color: AppColors().headerText, //Color.fromARGB(1, 18, 92, 19),
     fontSize: 18,
     height: 1,
     fontWeight: FontWeight.bold,
@@ -28,39 +28,39 @@ abstract class ThemeText {
 
   static TextStyle title = TextStyle(
     fontFamily: 'Roboto_Slab',
-    color: AppColors().gray, //Color.fromARGB(1, 18, 92, 19),
+    color: AppColors().headerText, //Color.fromARGB(1, 18, 92, 19),
     fontSize: 52,
     height: 1,
     fontWeight: FontWeight.bold,
   );
 
-  static const TextStyle body = TextStyle(
+  static TextStyle body = TextStyle(
     fontFamily: 'Open_Sans',
-    color: Color.fromRGBO(232, 225, 217, 1),
+    color: AppColors().bodyText, //Color.fromRGBO(232, 225, 217, 1),
     fontSize: 12,
     height: 1,
     fontWeight: FontWeight.normal,
   );
 
-  static const TextStyle bodyBold = TextStyle(
+  static TextStyle bodyBold = TextStyle(
     fontFamily: 'Open_Sans',
-    color: Color.fromRGBO(232, 225, 217, 1),
+    color: AppColors().bodyText,//Color.fromRGBO(232, 225, 217, 1),
     fontSize: 18,
     height: 1,
     fontWeight: FontWeight.bold,
   );
 
-  static const TextStyle bodyLarger = TextStyle(
+  static TextStyle bodyLarger = TextStyle(
     fontFamily: 'Open_Sans',
-    color: Color.fromRGBO(232, 225, 217, 1),
+    color: AppColors().bodyText, //Color.fromRGBO(232, 225, 217, 1),
     fontSize: 24,
     height: 1,
     fontWeight: FontWeight.normal,
   );
 
-  static const TextStyle bodyHeader = TextStyle(
+  static TextStyle bodyHeader = TextStyle(
     fontFamily: 'Open_Sans',
-    color: Color.fromRGBO(232, 225, 217, 1),
+    color: AppColors().bodyText, //Color.fromRGBO(232, 225, 217, 1),
     fontSize: 18,
     height: 1,
     fontWeight: FontWeight.bold,
@@ -74,7 +74,7 @@ class CustomTheme {
   static ThemeData get lightTheme { //1
     return ThemeData( //2
         primaryColor: AppColors().lightGreen,
-        scaffoldBackgroundColor: AppColors().lightGreen,
+        scaffoldBackgroundColor: AppColors().background, //AppColors().lightGreen,
         fontFamily: 'Roboto_Slab', //3
         primarySwatch: Colors.green, //AppColors().orangeMaterial,
         //buttonColor: AppColors().orange,

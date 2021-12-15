@@ -24,7 +24,8 @@ class _LearnScreenState extends State<LearnScreen> {
             children: [
                Text(
                   'Learn',
-                  style: ThemeText.headerLarge,
+                  //style: ThemeText.headerLarge,
+                   style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green, fontSize: 50 )
                ),
                Flexible(child: PlantList()),
               // ElevatedButton(

@@ -32,98 +32,108 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Settings')),
-      body:Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'NAME: ${_currentUser.displayName}',
-              style: Theme.of(context).textTheme.bodyText1,
-            ),
-            SizedBox(height: 16.0),
-            Text(
-              'EMAIL: ${_currentUser.email}',
-              style: Theme.of(context).textTheme.bodyText1,
-            ),
-            SizedBox(height: 16.0),
-            _currentUser.emailVerified
-                ? Text(
-              'Email verified',
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyText1!
-                  .copyWith(color: Colors.green),
-            )
-                : Text(
-              'Email not verified',
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyText1!
-                  .copyWith(color: Colors.red),
-            ),
-            SizedBox(height: 16.0),
-            _isSendingVerification
-                ? CircularProgressIndicator()
-                : Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                ElevatedButton(
-                  onPressed: () async {
-                    setState(() {
-                      _isSendingVerification = true;
-                    });
-                    await _currentUser.sendEmailVerification();
-                    setState(() {
-                      _isSendingVerification = false;
-                    });
-                  },
-                  child: Text('Verify email'),
-                ),
-                SizedBox(width: 8.0),
-                IconButton(
-                  icon: Icon(Icons.refresh),
-                  onPressed: () async {
-                    User? user = await FireAuth.refreshUser(_currentUser);
+      // appBar: AppBar(title: Text('Settings', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green, fontSize: 50 )),
+      // backgroundColor: AppColors().background,),
 
-                    if (user != null) {
-                      setState(() {
-                        _currentUser = user;
-                      });
-                    }
-                  },
+      body:SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 50),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(child: Text('Settings', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green, fontSize: 50 ))),
+                Spacer(),
+                Text('${_currentUser.displayName}', style: ThemeText.bodyLarger,),
+                Text('Name', style: ThemeText.body, textAlign: TextAlign.left,),
+                SizedBox(height: 16.0),
+                Text('${_currentUser.email}', style: ThemeText.bodyLarger,),
+                Text('Email', style: ThemeText.body, textAlign: TextAlign.left,),
+                SizedBox(height: 40.0),
+
+                _isSendingVerification
+                    ? CircularProgressIndicator()
+                    : Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () async {
+                        setState(() {
+                          _isSendingVerification = true;
+                        });
+                        await _currentUser.sendEmailVerification();
+                        setState(() {
+                          _isSendingVerification = false;
+                        });
+                      },
+                      child: Text('Verify email'),
+                    ),
+                    SizedBox(width: 8.0),
+                    IconButton(
+                      icon: Icon(Icons.refresh),
+                      onPressed: () async {
+                        User? user = await FireAuth.refreshUser(_currentUser);
+
+                        if (user != null) {
+                          setState(() {
+                            _currentUser = user;
+                          });
+                        }
+                      },
+                    ),
+                  ],
                 ),
+                _currentUser.emailVerified
+                    ? Text(
+                  'Email verified',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText1!
+                      .copyWith(color: Colors.green),
+                )
+                    : Text(
+                  'Email not verified',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText1!
+                      .copyWith(color: Colors.red),
+                ),
+                SizedBox(height: 16.0),
+
+
+                SizedBox(height: 16.0),
+                Spacer(flex:8),
+                _isSigningOut
+                    ? CircularProgressIndicator()
+                    : Center(
+                      child: ElevatedButton(
+                  onPressed: () async {
+                      setState(() {
+                        _isSigningOut = true;
+                      });
+                      await FirebaseAuth.instance.signOut();
+                      setState(() {
+                        _isSigningOut = false;
+                      });
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (context) => LoginPage(),
+                        ),
+                      );
+                  },
+                  child: Text('Sign out'),
+                  style: ElevatedButton.styleFrom(
+                      primary: AppColors().aux_red,
+                      //shape: RoundedRectangleBorder(
+                        //borderRadius: BorderRadius.circular(30),
+                      // ),
+                  ),
+                ),
+                    ),
+                SizedBox(height: 50),
               ],
             ),
-            SizedBox(height: 16.0),
-            _isSigningOut
-                ? CircularProgressIndicator()
-                : ElevatedButton(
-              onPressed: () async {
-                setState(() {
-                  _isSigningOut = true;
-                });
-                await FirebaseAuth.instance.signOut();
-                setState(() {
-                  _isSigningOut = false;
-                });
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                    builder: (context) => LoginPage(),
-                  ),
-                );
-              },
-              child: Text('Sign out'),
-              style: ElevatedButton.styleFrom(
-                primary: Colors.red,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-              ),
-            ),
-          ],
+          ),
         ),
-      ),
     );
   }
 }

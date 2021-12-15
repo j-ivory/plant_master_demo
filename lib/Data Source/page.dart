@@ -16,6 +16,7 @@ class PlantPage extends StatelessWidget {
       appBar: AppBar(
         //title: Text("${plant.primaryCommonName} Info"),
         backgroundColor: Colors.green,
+        title: Text('Info')
       ),
       body: SafeArea(
         minimum: EdgeInsets.all(20),
@@ -24,7 +25,7 @@ class PlantPage extends StatelessWidget {
           children: [
             Center(
               child: Text(
-                "${plant.primaryCommonName} Info",
+                "${plant.primaryCommonName}",
                 style: ThemeText.headerLarge,
               ),
             ),
@@ -43,7 +44,7 @@ class PlantPage extends StatelessWidget {
               child: Image.asset('assets/images/aloe-picture.jpg'),
             ),
             Card(
-              color: AppColors().lightGreen,
+              color: AppColors().background,
               elevation: 0,
               child: Column(
                       //mainAxisAlignment: MainAxisAlignment.center,

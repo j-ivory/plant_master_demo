@@ -27,7 +27,8 @@ class _SavedScreenState extends State<SavedScreen> {
             children: [
                Text(
                   'Saved',
-                  style: ThemeText.headerLarge,
+                  //style: ThemeText.headerLarge,
+                   style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green, fontSize: 50 )
                ),
                SizedBox(height:10),
                Consumer<SavedModel>(
