@@ -46,6 +46,18 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: Assets/Fonts/Roboto/Roboto-Regular.ttf
+    - family: Open_Sans
+      fonts:
+        - asset: Assets/Fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf
+    - family: Roboto_Slab
+      fonts:
+        - asset: Assets/Fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf
+
   assets:
     - assets/images/
   # The following line ensures that the Material Icons font is
@@ -85,13 +97,3 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
 
   #my failed attempt (asset path?????)
-  fonts:
-    - family: Roboto
-      fonts:
-        - asset: Assets/Fonts/Roboto/Roboto-Regular.ttf
-    - family: Open_Sans
-      fonts:
-        - asset: Assets/Fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf
-    - family: Roboto_Slab
-      fonts:
-        - asset: Assets/Fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf
