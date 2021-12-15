@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "94861440337",
+    "project_id": "plant-master-98c8b",
+    "storage_bucket": "plant-master-98c8b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:94861440337:android:8b9f18bc439afef0f44f70",
+        "android_client_info": {
+          "package_name": "com.plantmaster.plant_master_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "94861440337-bsns93r9crugpj5b2a4obvphn9nv45a9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1fIiASxEEueX9VX4J3fFOgu-49unAOKs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "94861440337-bsns93r9crugpj5b2a4obvphn9nv45a9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "94861440337-uldtbhgabfqhrog1tu8cseg4m9d4c7eo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.plantmaster.plantMasterDemo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
