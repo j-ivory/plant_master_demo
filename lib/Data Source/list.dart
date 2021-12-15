@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plant_master_demo/Data Source/random.dart';
+import 'package:plant_master_demo/Data Source/page.dart';
 import 'nature.dart';
 import 'package:plant_master_demo/Data Source/SavedModel.dart';
 import 'package:provider/provider.dart';
@@ -105,16 +106,19 @@ Widget build(BuildContext context) {
                         //     _savedPlant.add(snapshot.data[index]);
                         //   }
                         // });
+                        // setState(() {
+                        //     Navigator.push(context,
+                        //     MaterialPageRoute(builder: (context) => PlantPage(saved.savedList[index])));
+                        //     },
+                        // );
                       },
-                    );
-                   }, );
-                },
+
               );
-          }
         },
       );
     //);
-  }
+  },
+  );
+          }
 
-
-}
+});}}

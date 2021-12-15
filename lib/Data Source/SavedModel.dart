@@ -7,13 +7,13 @@ import 'nature.dart';
 
 
 class SavedModel extends ChangeNotifier {
-  ///test stuff vvvvv
-  int _test = 0;
-  int get test => _test;
-  set test(int newVal) {
-    _test = newVal;
-    notifyListeners();
-  } ///test stuff ^^^^^
+  // ///test stuff vvvvv
+  // int _test = 0;
+  // int get test => _test;
+  // set test(int newVal) {
+  //   _test = newVal;
+  //   notifyListeners();
+  // } ///test stuff ^^^^^
 
 
   final List<Plant> _plants = [];

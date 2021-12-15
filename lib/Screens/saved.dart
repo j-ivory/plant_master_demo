@@ -1,5 +1,6 @@
 //flutter imports
 import 'package:flutter/material.dart';
+import 'package:plant_master_demo/Data%20Source/page.dart';
 import 'package:provider/provider.dart';
 
 //project files imports
@@ -41,11 +42,21 @@ class _SavedScreenState extends State<SavedScreen> {
                        ),
                        itemCount: saved.totalSaved,
                        itemBuilder: (BuildContext context, int index) {
-                         return PlantCard(
-                             scientificName: '${saved.getScientificName(index)}',
-                             commonName: '${saved.getCommonName(index)}',
-                             plant: saved.savedList[index],
+                         return GestureDetector(
+                           onTap: (){
+                             setState(() {
+                               Navigator.push(context,
+                                   MaterialPageRoute(builder: (context) => PlantPage(saved.savedList[index])));
+                             },
+                             );
+                           },
+                           child: PlantCard(
+                               scientificName: '${saved.getScientificName(index)}',
+                               commonName: '${saved.getCommonName(index)}',
+                               plant: saved.savedList[index],
+                           ),
                          );
+
                        },
                      ),
                    );

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
+
 //Defines app-wide common colors
 @immutable
 class AppColors {
   final darkGreen = const Color.fromRGBO(18,92,19,1);
-  final lightGreen = const Color.fromRGBO(62,124,23,1);
+  //final lightGreen = const Color.fromRGBO(62,124,23,1);
+  //final lightGreen = Color.fromRGBO(138, 134, 53,1);
+  final lightGreen = Colors.green[700];
   final orange = const Color.fromRGBO(244, 164, 66, 1);
   final gray = const Color.fromRGBO(232, 225, 217, 1);
   //Color(0XFFF8D320) this is a cool light green
