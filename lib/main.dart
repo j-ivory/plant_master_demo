@@ -1,5 +1,6 @@
 //flutter imports
 import 'package:flutter/material.dart';
+import 'package:plant_master_demo/Screens/login_page.dart';
 import 'package:provider/provider.dart';
 
 //project files imports
@@ -30,8 +31,8 @@ class MyApp extends StatelessWidget {
       theme: CustomTheme.lightTheme,
       //initialRoute: '/',
       routes: {
-        '/': (context) => const LoginScreen(),
-
+        // '/': (context) => const LoginScreen(),
+        '/': (context) => LoginPage(),
 
         // '/home': (context) => const HomeScreen(),
         // '/search': (context) => const SearchScreen(),
