@@ -249,8 +249,11 @@ class _SearchScreenState extends State<SearchScreen> {
               body: _isLoading
                   ? const Center(child: CircularProgressIndicator())
                   : ListView.builder(
-                itemCount: saved.totalSaved,
+                itemCount: plants.length,
                 itemBuilder: (context, index) {
+                  // if (index.bitLength == 0){
+                  //   return ListTile(title: Text('This is useless'),);
+                  // }
                   final alreadySaved = saved.savedList.contains(plants[index]);
                   return ListTile(
                     // leading: CircleAvatar(
