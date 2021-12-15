@@ -66,13 +66,16 @@ class _TestScreenState extends State<TestScreen> {
                 child: Text(
                   'Plant of the Day!',
                   style: ThemeText.headerMedium,
+                  //style: Theme.of(context).textTheme.headline1,
                   textAlign: TextAlign.center,
                 ),
               ),
 
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 0),
-                child: Image.asset('assets/images/aloe-picture.jpg'),
+                child: ClipRRect(
+                    borderRadius: BorderRadius.circular(15.0),
+                    child: Image.asset('assets/images/aloe-picture.jpg')),
               ),
               Card(
                 color: AppColors().lightGreen,

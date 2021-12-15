@@ -111,6 +111,12 @@ Widget build(BuildContext context) {
                         //     MaterialPageRoute(builder: (context) => PlantPage(saved.savedList[index])));
                         //     },
                         // );
+                        setState( () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) =>
+                                  PlantPage(plantList[index]))
+                          );
+                        });
                       },
 
               );
