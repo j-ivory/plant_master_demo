@@ -124,9 +124,31 @@ class _TestScreenState extends State<TestScreen> {
                   ),
                 ),
                 Spacer(
-                  flex: 4,
+                  flex: 2,
                 ),
-
+                Center(
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      elevation: 15,
+                      shape: CircleBorder(),
+                      primary: Colors.green,
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/quiz');
+                    },
+                    child: Container(
+                      width: 150,
+                      height: 150,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(shape: BoxShape.circle),
+                      child: Text(
+                        'Quiz',
+                        style: TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold ),
+                      ),
+                    ),
+                  ),
+                ),
+                Spacer(flex: 2),
               ],
             ),
           ),

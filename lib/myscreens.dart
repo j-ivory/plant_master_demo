@@ -13,6 +13,7 @@ import 'package:plant_master_demo/Screens/learn.dart';
 import 'package:plant_master_demo/Screens/saved.dart';
 import 'package:plant_master_demo/Screens/settings.dart';
 import 'package:plant_master_demo/Screens/home.dart';
+import 'package:plant_master_demo/Screens/quiz.dart';
 
 User? userSet = FirebaseAuth.instance.currentUser ;
 
