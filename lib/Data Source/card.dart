@@ -26,7 +26,7 @@ class PlantCard extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(20),
-                child: Image.asset('assets/images/aloe-picture.jpg',
+                child: Image.asset('assets/images/plant-icon.png',
                    width: screenWidth/2.5,
                    height: screenWidth/3.5,
                 ),
@@ -37,7 +37,7 @@ class PlantCard extends StatelessWidget {
               ),
               IconButton(
                 icon: Icon(Icons.favorite),
-                iconSize: 35,
+                iconSize: 28,
                 color: Colors.red,//AppColors().orange,
                 onPressed: () {
                   Provider.of<SavedModel>(context, listen: false).remove(plant);

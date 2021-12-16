@@ -13,65 +13,81 @@ class PlantPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        //title: Text("${plant.primaryCommonName} Info"),
-        backgroundColor: Colors.green,
-        title: Text('Info')
-      ),
+      // appBar: AppBar(
+      //   //title: Text("${plant.primaryCommonName} Info"),
+      //     elevation: 0,
+      //     backgroundColor: AppColors().background,
+      //   title: Text("", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green, fontSize: 30 )),
+      // ),
       body: SafeArea(
         minimum: EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: Text(
-                "${plant.primaryCommonName}",
-                style: ThemeText.headerLarge,
-              ),
-            ),
-            SizedBox(height:5),
-            //Spacer(),
-            Center(
-              child: Text(
-                '',
-                style: ThemeText.headerMedium,
-                textAlign: TextAlign.center,
-              ),
-            ),
+        child: SingleChildScrollView(
+          child: SizedBox(
+            width: 700,
+            height: 1300,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green, fontSize: 30 )),
+                Center(
+                  child: plant.primaryCommonName=='No Data' ?
+                  Text(
+                    "${plant.scientificName}",
+                    style: TextStyle(fontSize: 45),
+                  ) : Text(
+                    "${plant.primaryCommonName}",
+                    style: TextStyle(fontSize: 45),
+                  )
 
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 0),
-              child: Image.asset('assets/images/aloe-picture.jpg'),
-            ),
-            Card(
-              color: AppColors().background,
-              elevation: 0,
-              child: Column(
-                      //mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(plant.scientificName, style: ThemeText.bodyLarger,),
-                          Text('Scientific Name', style: ThemeText.body, textAlign: TextAlign.left,),
-                          SizedBox(height: 15),
-                          Text(plant.primaryCommonName, style: ThemeText.bodyLarger,),
-                          Text('Primary Name', style: ThemeText.body, textAlign: TextAlign.left,),
-                          SizedBox(height: 15),
+                ),
+                SizedBox(height:5),
+                //Spacer(),
+                Center(
+                  child: Text(
+                    '',
+                    style: ThemeText.headerMedium,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
 
-                          Text(plant.informalTaxonomy, style: ThemeText.bodyLarger,),
-                          Text('Taxonomy', style: ThemeText.body, textAlign: TextAlign.left,),
-                          SizedBox(height: 15),
-                          Text(plant.Family, style: ThemeText.bodyLarger,),
-                          Text('Family', style: ThemeText.body, textAlign: TextAlign.left,),
-                          SizedBox(height: 15),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 0),
+                  child: Image.asset('assets/images/aloe-picture.jpg'),
+                ),
+                Card(
+                  color: AppColors().background,
+                  elevation: 0,
+                  child: Column(
+                          //mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(plant.scientificName, style: ThemeText.bodyLarger,),
+                              Text('Scientific Name', style: ThemeText.body, textAlign: TextAlign.left,),
+                              SizedBox(height: 15),
 
-                        ]
-              ),
-            ),
-            Spacer(
-              flex: 4,
-            ),
+                              Text(plant.primaryCommonName, style: ThemeText.bodyLarger,),
+                              Text('Common Name', style: ThemeText.body, textAlign: TextAlign.left,),
+                              SizedBox(height: 15),
 
-          ],
+                              Text(plant.informalTaxonomy, style: ThemeText.bodyLarger,),
+                              Text('Taxonomy', style: ThemeText.body, textAlign: TextAlign.left,),
+                              SizedBox(height: 15),
+                              Text(plant.Family, style: ThemeText.bodyLarger,),
+                              Text('Family', style: ThemeText.body, textAlign: TextAlign.left,),
+                              SizedBox(height: 15),
+
+                            ]
+                  ),
+                ),
+                Spacer(
+                  flex: 4,
+                ),
+                // Text('make it overflow!', style: TextStyle(fontSize: 50)),
+
+
+              ],
+            ),
+          ),
         ),
       ),
     );

@@ -197,20 +197,20 @@ class _QuizPageState extends State<QuizPage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-        Padding(
-        padding: EdgeInsets.all(5.0),
-        child: Center(
-          child: Image.network("${quizBrain.getReviewQuestionPicture()}"),
-          // child: Text(
-          //   quizBrain.getReviewQuestionPicture()!,
-          //   textAlign: TextAlign.center,
-          //   style: TextStyle(
-          //     fontSize: 25.0,
-          //     color: Colors.red,
-          //   ),
-          // ),
-        ),
-      ),
+          ConstrainedBox(
+              constraints: BoxConstraints(
+                // maxHeight: 400,
+                // maxWidth: 30,
+              ),
+              child: SizedBox(
+                height: 400,
+                child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      maxHeight: 400,
+                    ),
+                    child: Image.network("${quizBrain.getReviewQuestionPicture()}")),
+              )
+          ),
       Padding(
         padding: EdgeInsets.all(5.0),
         child: Center(
@@ -224,6 +224,7 @@ class _QuizPageState extends State<QuizPage> {
           ),
         ),
       ),
+          //Spacer(flex: 1),
           Padding(
             padding: EdgeInsets.all(15.0),
             child: TextButton(
@@ -249,9 +250,11 @@ class _QuizPageState extends State<QuizPage> {
   );
 }
 
+  bool isHintsSwitched = false;
 
   @override
   Widget build(BuildContext context) {
+
     return _isLoading
           ? const Center(child: CircularProgressIndicator()) : Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -259,26 +262,38 @@ class _QuizPageState extends State<QuizPage> {
         children: <Widget>[
           ConstrainedBox(
             constraints: BoxConstraints(
-              maxHeight: 400,
-              maxWidth: 30,
+              // maxHeight: 400,
+              // maxWidth: 30,
             ),
-            child: Image.network(quizBrain.getPicture())
+            child: SizedBox(
+              height: 400,
+              child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxHeight: 400,
+                  ),
+                  child: Image.network(quizBrain.getPicture())),
+            )
           ),
           Padding(
             padding: EdgeInsets.all(10.0),
             child: Center(
-              child: Text(
+              child: isHintsSwitched==true ? Text(
                 quizBrain.getQuestionName(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
                   color: Colors.green,
-                ),
+                )) : Text("",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                fontSize: 25.0,
+                color: Colors.green,
+                )
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal:20.0),
             child: new Theme(
               data: new ThemeData(
                 primaryColor: Colors.redAccent,
@@ -325,6 +340,69 @@ class _QuizPageState extends State<QuizPage> {
                 checkAnswer(myController.text);
                 myController.text = '';
               },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 10.0),
+            child: Stack(
+              children: [
+                // Center(
+                //   child: isHintsSwitched==true ? Text(
+                //       quizBrain.getQuestionName(),
+                //       textAlign: TextAlign.center,
+                //       style: TextStyle(
+                //         fontSize: 25.0,
+                //         color: Colors.green,
+                //       )) : Text("",
+                //       textAlign: TextAlign.center,
+                //       style: TextStyle(
+                //         fontSize: 25.0,
+                //         color: Colors.green,
+                //       )
+                //   ),
+                // ),
+                Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  // Padding(
+                  //   padding: const EdgeInsets.only(right: 10),
+                  //   child: SizedBox(
+                  //     width: 270,
+                  //     height: 40,
+                  //     child: TextButton(
+                  //       style: TextButton.styleFrom(backgroundColor: Colors.green),
+                  //       child: Text(
+                  //         'Submit',
+                  //         style: TextStyle(
+                  //           color: Colors.white,
+                  //           fontSize: 20.0,
+                  //         ),
+                  //       ),
+                  //       onPressed: () {
+                  //         //The user picked true.
+                  //         checkAnswer(myController.text);
+                  //         myController.text = '';
+                  //       },
+                  //     ),
+                  //   ),
+                  // ),
+                  isHintsSwitched==false ?
+                    Text('Hints', style: TextStyle(color: Colors.grey)) :
+                    Text('Hints', style: TextStyle(color: Colors.lightGreen)),
+                  Switch(
+                    value: isHintsSwitched,
+                    onChanged: (value) {
+                      setState(() {
+                        isHintsSwitched = value;
+                        print(isHintsSwitched);
+                      });
+                    },
+                    activeTrackColor: Colors.lightGreenAccent,
+                    activeColor: Colors.green,
+                  ),
+                ],
+              ),
+              ],
             ),
           ),
           Row(

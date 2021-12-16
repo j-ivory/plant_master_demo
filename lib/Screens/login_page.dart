@@ -80,7 +80,13 @@ class _LoginPageState extends State<LoginPage> {
                           child: Text(
                             'Login',
                             //style: Theme.of(context).textTheme.headline2,
-                            style: ThemeText.headerMedium,
+                            style: TextStyle(
+                              fontFamily: 'Roboto_Slab',
+                              color: AppColors().gray, //Color.fromARGB(1, 18, 92, 19),
+                              fontSize: 24,
+                              height: 1,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                         Form(

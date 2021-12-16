@@ -65,9 +65,7 @@ Widget build(BuildContext context) {
         builder: (BuildContext context, AsyncSnapshot snapshot){
           print(snapshot.data);
           if(snapshot.data == null){
-            return const Center(
-                child: Text("Loading...")
-            );
+            return Center(child: Image.asset('assets/images/loader.gif', scale: 6,));
           } else {
 
             return Consumer<SavedModel>(
