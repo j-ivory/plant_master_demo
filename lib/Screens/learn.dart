@@ -23,7 +23,7 @@ class _LearnScreenState extends State<LearnScreen> {
           child: Column(
             children: [
                Text(
-                  'Learn',
+                  'Explore',
                   //style: ThemeText.headerLarge,
                    style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green, fontSize: 50 )
                ),

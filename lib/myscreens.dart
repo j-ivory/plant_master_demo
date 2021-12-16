@@ -121,7 +121,7 @@ class MyScreensState extends State<MyScreens> {
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.school),
-                label: 'Learn',
+                label: 'Explore',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.favorite),

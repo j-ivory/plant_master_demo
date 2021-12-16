@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:plant_master_demo/Data Source/quiz_brain.dart';
+import 'package:plant_master_demo/Screens/quizPageFrame.dart';
 import 'package:plant_master_demo/Theme/colors.dart';
 //import 'courses_info.dart';
 
@@ -39,6 +40,7 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   final myController = TextEditingController();
+  //final _focusController = FocusNode();
 
   @override
   void dispose() {
@@ -53,6 +55,7 @@ class _QuizPageState extends State<QuizPage> {
   bool _isLoading = true;
 
 
+
   @override
   void initState(){
     super.initState();
@@ -63,23 +66,24 @@ class _QuizPageState extends State<QuizPage> {
 
   Future<void> getQuestionFinal() async {
 
-    // String subject = 'nsmq';
-    // if (CourseInfoPage.subject == "Mathematics"){
-    //   subject = 'math';
-    // }
-    // else if (CourseInfoPage.subject == "Science"){
-    //   subject = 'science';
-    // }
-    // else if(CourseInfoPage.subject == "Social Studies"){
-    //   subject = 'social_studies';
-    // }
-    // else{
-    //   var list = ['math','science','social_studies'];
-    //   subject = list[Random().nextInt(list.length)];
-    // }
-
-
-    quizBrain.questionBank = await quizBrain.getQuestions('trees');
+    String subject = 'nsmq';
+    if (QuizPageFrame.subject == "trees"){
+      subject = 'trees';
+    }
+    else if (QuizPageFrame.subject == "flowers"){
+      subject = 'flowers';
+    }
+    // // else if (CourseInfoPage.subject == "Science"){
+    // //   subject = 'science';
+    // // }
+    // // else if(CourseInfoPage.subject == "Social Studies"){
+    // //   subject = 'social_studies';
+    // // }
+    else{
+      var list = ['flowers','trees'];
+      subject = list[Random().nextInt(list.length)];
+    }
+    quizBrain.questionBank = await quizBrain.getQuestions(subject);
     setState(() {
       _isLoading = false;
     });
@@ -193,64 +197,57 @@ class _QuizPageState extends State<QuizPage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-        Expanded(
-        flex: 5,
-        child: Padding(
-          padding: EdgeInsets.all(5.0),
-          child: Center(
-            child: Text(
-              quizBrain.getReviewQuestionName(),
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 25.0,
-                color: Colors.black,
-              ),
+        Padding(
+        padding: EdgeInsets.all(5.0),
+        child: Center(
+          child: Image.network("${quizBrain.getReviewQuestionPicture()}"),
+          // child: Text(
+          //   quizBrain.getReviewQuestionPicture()!,
+          //   textAlign: TextAlign.center,
+          //   style: TextStyle(
+          //     fontSize: 25.0,
+          //     color: Colors.red,
+          //   ),
+          // ),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(5.0),
+        child: Center(
+          child: Text(
+            quizBrain.getReviewQuestionName(),
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 25.0,
+              color: Colors.red,
             ),
           ),
         ),
       ),
-      Expanded(
-            flex: 5,
-            child: Padding(
-              padding: EdgeInsets.all(5.0),
-              child: Center(
-                child: Text(
-                  quizBrain.getReviewQuestionPicture()!,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 25.0,
-                    color: Colors.red,
-                  ),
+          Padding(
+            padding: EdgeInsets.all(15.0),
+            child: TextButton(
+              style: TextButton.styleFrom(backgroundColor: Colors.green),
+              child: Text(
+                'Next',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20.0,
                 ),
               ),
+              onPressed: () {
+                //Next Question
+                reviewCheck();
+              },
             ),
           ),
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.all(15.0),
-              child: TextButton(
-                style: TextButton.styleFrom(backgroundColor: Colors.green),
-                child: Text(
-                  'Next',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20.0,
-                  ),
-                ),
-                onPressed: () {
-                  //Next Question
-                  reviewCheck();
-                },
-              ),
-            ),
-          ),
+          Spacer(),
       ],
       ),
     );
   })
   );
 }
-
 
 
   @override
@@ -260,7 +257,13 @@ class _QuizPageState extends State<QuizPage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Image.network(quizBrain.getPicture()),
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              maxHeight: 400,
+              maxWidth: 30,
+            ),
+            child: Image.network(quizBrain.getPicture())
+          ),
           Padding(
             padding: EdgeInsets.all(10.0),
             child: Center(
@@ -276,14 +279,34 @@ class _QuizPageState extends State<QuizPage> {
           ),
           Padding(
             padding: const EdgeInsets.all(20.0),
-            child: TextField(
-              //obscureText: true,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'name',
-                focusColor: Colors.green,
+            child: new Theme(
+              data: new ThemeData(
+                primaryColor: Colors.redAccent,
+                primaryColorDark: Colors.green,
               ),
-              controller: myController,
+              child: TextField(
+                cursorColor: Colors.green,
+                //obscureText: true,
+                decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.green),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.green),
+                  ),
+                  border: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.green),
+                  ),
+                  labelText: 'name',
+                  labelStyle: TextStyle(
+                    color: Colors.green,
+                  ),
+                  focusColor: Colors.green,
+                  fillColor: Colors.green,
+                  filled: false,
+                ),
+                controller: myController,
+              ),
             ),
           ),
           Padding(

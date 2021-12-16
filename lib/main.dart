@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 //project files imports
 import 'package:plant_master_demo/Theme/theme_data.dart';
 import 'Screens/quiz.dart';
+import 'Screens/quizPageFrame.dart';
 import 'Theme/colors.dart';
 import 'package:plant_master_demo/Screens/login.dart';
 // import 'package:plant_master_demo/Screens/home.dart';
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
 
         '/': (context) => LoginPage(),
 
-        '/quiz': (context) => Quiz(),
+        '/quiz': (context) => QuizPageFrame(),
 
         // '/home': (context) => const HomeScreen(),
         // '/search': (context) => const SearchScreen(),

@@ -47,6 +47,8 @@ class _TestScreenState extends State<TestScreen> {
     futurePlant = fetchPlant();
   }
 
+  String quizSubject = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -127,25 +129,60 @@ class _TestScreenState extends State<TestScreen> {
                   flex: 2,
                 ),
                 Center(
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      elevation: 15,
-                      shape: CircleBorder(),
-                      primary: Colors.green,
-                    ),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/quiz');
-                    },
-                    child: Container(
-                      width: 150,
-                      height: 150,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(shape: BoxShape.circle),
-                      child: Text(
-                        'Quiz',
-                        style: TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        // Within the `FirstScreen` widget
+                        onPressed: () {
+                          // Navigate to the second screen using a named route.
+                          //Navigator.pushNamed(context, '/screens');
+                          setState(() {
+                            quizSubject = 'trees';
+                          });
+                        },
+                        child: Container(
+                          child: Center(child: const Text('Trees')),
+                          width: 60,
+                          height: 20,
+                        ),
                       ),
-                    ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          elevation: 15,
+                          shape: CircleBorder(),
+                          primary: Colors.green,
+                        ),
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/quiz', arguments: quizSubject);
+                        },
+                        child: Container(
+                          width: 150,
+                          height: 150,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(shape: BoxShape.circle),
+                          child: Text(
+                            'Quiz',
+                            style: TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold ),
+                          ),
+                        ),
+                      ),
+                      ElevatedButton(
+                        // Within the `FirstScreen` widget
+                        onPressed: () {
+                          // Navigate to the second screen using a named route.
+                          //Navigator.pushNamed(context, '/screens');
+                          setState(() {
+                            quizSubject = 'flowers';
+                          });
+                        },
+                        child: Container(
+                            child: Center(child: const Text('Flowers')),
+                            width: 60,
+                            height: 20,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Spacer(flex: 2),
